@@ -12,15 +12,19 @@
         <a href="/" class="text-blue-500">Back to home</a>
         <h1 class="text-3xl mt-10 tracking-tighter mb-3">All Users</h1>
         <div class="users flex gap-3 flex-wrap">
-            <div class="user w-72 p-4 bg-zinc-800 rounded-lg">
-                <div class="w-full h-52 rounded-lg bg-zinc-500"></div>
-                <h3 class="text-xl mt-3 tracking-tighter">Abhishek Rawat</h3>
-                <h5 class="text-zinc-500">abhisingh78@gmail.com</h5>
-                <div class="gap-3 flex">
-                    <a href="" class="text-zinc-700">Edit user</a>
-                    <a href="" class="text-red-700">Delete user</a>
+            <% users.forEach(function(user){ %>
+                <div class="user w-72 p-4 bg-zinc-800 rounded-lg">
+                    <div class="w-full h-52 rounded-lg bg-zinc-500 overeflow-hidden">
+                        <img src=" <%=  user.image %> " class="w-full h-full object-cover" alt="">
+                    </div>
+                    <h3 class="text-xl mt-3 tracking-tighter"><%= user.name %></h3>
+                    <h5 class="text-zinc-500"><%= user.email %></h5>
+                    <div class="gap-3 flex">
+                        <a href="/edit/<%= user._id %>" class="text-zinc-700">Edit user</a>
+                        <a href="/delete/<%= user._id %>" class="text-red-700">Delete user</a>
+                    </div>
                 </div>
-            </div>
+            <% }) %>
         </div>
     </div>
 </body>

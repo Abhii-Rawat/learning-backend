@@ -8,4 +8,6 @@ const userSchema = mongoose.Schema({
     email: "string"
 })
 
-module.export = mongoose.model('user', userSchema) ;
+const userModel = mongoose.model('User', userSchema);
+
+module.exports = userModel;
